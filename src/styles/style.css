@@ -54,11 +54,11 @@ img {
     margin-left: 10px;
 }
 
-.choice-container {
-    animation: rotateImage 1s ease-in-out;
+.rotate {
+    animation: rotate-animation 1s linear;
 }
 
-@keyframes rotateImage {
+@keyframes rotate-animation {
     0% {
         transform: rotate(0deg);
     }
@@ -66,4 +66,3 @@ img {
         transform: rotate(360deg);
     }
 }
-

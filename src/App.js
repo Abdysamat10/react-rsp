@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import './styles/style.css';
-import paper from './assets/paper.jpg';
-import scissor from './assets/scissor.jpg';
-import rock from './assets/rock.jpg';
+import paper from './assets/paper.png';
+import scissor from './assets/scissor.png';
+import rock from './assets/rock.png';
 
 function App() {
     const [score, setScore] = useState([0, 0, 0]);
@@ -53,13 +53,21 @@ function App() {
         setComputerChoice(randomChoice);
     }, []);
 
-
+    useEffect(() => {
+        const choice = document.querySelector('.choice-container');
+        if (choice) {
+            choice.classList.add('rotate');
+            setTimeout(() => {
+                choice.classList.remove('rotate');
+            }, 1000);
+        }
+    }, [computerChoice]);
 
     return (
         <div className='wrapper'>
             <div className='count'>
                 <h1>
-                    {score[0]}  {score[1]}  {score[2]}
+                    {score[0]} {score[1]} {score[2]}
                 </h1>
                 <button onClick={restartGame}>Restart</button>
             </div>
